@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/AntDesign'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useState } from "react/cjs/react.development";
 import LinearGradient from 'react-native-linear-gradient';
+import Anuncios from '../Components/Anuncios'
 
 const DATA = [
     {
@@ -38,7 +39,6 @@ const DATA = [
     }
 ]
 
-
 const User = () => {
 
     const [index, setIndex] = useState(0)
@@ -70,9 +70,11 @@ const User = () => {
                             </Text>
                         </View>
                         <View style={[styles.icons, { paddingTop: 50 }]}>
-                            <LinearGradient colors={['#ff7854', '#fd267d']} style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
-                                <Icon name="camera" size={35} />
-                            </LinearGradient>
+                            <TouchableOpacity>
+                                <LinearGradient colors={['#ff7854', '#fd267d']} style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
+                                    <Icon name="camera" size={35} />
+                                </LinearGradient>
+                            </TouchableOpacity>
                             <Text style={{ fontSize: 10 }}>
                                 ADD MIDIA
                             </Text>
@@ -97,18 +99,7 @@ const User = () => {
                         loop={true}
                         onSnapToItem={(index) => setIndex(index)}
                         renderItem={({ item }) => {
-                            return <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                                <View style={{ flexDirection: 'row' }}>
-                                    <Image style={{ width: 25, height: 25 }} source={{ uri: item.icon }} />
-
-                                    <Text style={{ fontWeight: 'bold' }}>
-                                        {item.title}
-                                    </Text>
-                                </View>
-                                <Text>
-                                    {item.description}
-                                </Text>
-                            </View>
+                            return <Anuncios item={item} />
                         }}
                         sliderWidth={300}
                         itemWidth={300}
