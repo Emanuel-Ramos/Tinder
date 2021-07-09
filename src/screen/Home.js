@@ -93,8 +93,6 @@ const Home = () => {
 
   const [end, setEnd] = useState(true)
 
-
-
   const change = () => {
     if (contador + 1 >= pessoas.length) {
       setEnd(false)

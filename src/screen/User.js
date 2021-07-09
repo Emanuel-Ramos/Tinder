@@ -113,7 +113,7 @@ const User = () => {
                         sliderWidth={300}
                         itemWidth={300}
                     />
-                    <View style={{ width: 50, height: 50 }}>
+                    <View style={{ width: 50, height: 30 }}>
                         <Pagination
                             dotsLength={DATA.length}
                             activeDotIndex={index}
