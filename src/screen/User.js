@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/AntDesign'
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useState } from "react/cjs/react.development";
-
+import LinearGradient from 'react-native-linear-gradient';
 
 const DATA = [
     {
@@ -61,20 +61,26 @@ const User = () => {
                         Colegio estadual de Noxus
                     </Text>
                     <View style={{ flexDirection: 'row', justifyContent: "center" }}>
-                        <View style={[styles.icons, { marginLeft: 110 }]}>
-                            <Icon name="setting" size={35} />
+                        <View style={[styles.icons, { marginLeft: 100 }]}>
+                            <TouchableOpacity style={styles.btnIcon}>
+                                <Icon name="setting" size={35} />
+                            </TouchableOpacity>
                             <Text style={{ fontSize: 10 }}>
                                 CONFIGURACOES
                             </Text>
                         </View>
                         <View style={[styles.icons, { marginTop: 40 }]}>
-                            <Icon name="camera" size={35} />
+                            <TouchableOpacity style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
+                                <Icon name="camera" size={35} />
+                            </TouchableOpacity>
                             <Text style={{ fontSize: 10 }}>
                                 ADD MIDIA
                             </Text>
                         </View>
                         <View style={styles.icons}>
-                            <Icon name="edit" size={35} />
+                            <TouchableOpacity style={styles.btnIcon}>
+                                <Icon name="edit" size={35} />
+                            </TouchableOpacity>
                             <Text style={{ fontSize: 10 }}>
                                 EDITAR INFO
                             </Text>
@@ -122,12 +128,12 @@ const User = () => {
                         inactiveDotScale={0.6}
                     />
                 </View>
-                <TouchableOpacity style={styles.btnTinderPlus}>
+                <LinearGradient colors={['262deg', '#ff7854', '#fd267d']} style={styles.btnTinderPlus}>
                     <Text style={{ fontWeight: 'bold', color: '#FE3C72' }}>
-                        Meu tinder Plus
+                        MEU TINDER PLUS®
                     </Text>
 
-                </TouchableOpacity>
+                </LinearGradient>
             </View>
         </View>
     )
@@ -181,6 +187,26 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         margin: 20,
         borderRadius: 40,
+
+
+    },
+    btnIcon: {
+
+        backgroundColor: '#DEE3E8',
+        height: 50,
+        width: 50,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 30,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 6,
+        },
+        shadowOpacity: 0.39,
+        shadowRadius: 8.30,
+
+        elevation: 13,
 
     },
     btnTinderPlus: {
