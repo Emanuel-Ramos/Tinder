@@ -1,10 +1,11 @@
 import React from "react";
-import { View } from 'react-native'
+import { View, Image } from 'react-native'
+
 
 const Gold = () => {
     return (
-        <View>
-
+        <View style={{ width: '100%', height: '100%', justifyContent: 'center', alignItems: 'center' }}>
+            <Image source={require('../../icon/images.png')} />
         </View>
     )
 }

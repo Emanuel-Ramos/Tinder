@@ -60,8 +60,8 @@ const User = () => {
                     <Text>
                         Colegio estadual de Noxus
                     </Text>
-                    <View style={{ flexDirection: 'row', justifyContent: "center" }}>
-                        <View style={[styles.icons, { marginLeft: 100 }]}>
+                    <View style={styles.iconsArea}>
+                        <View style={styles.icons}>
                             <TouchableOpacity style={styles.btnIcon}>
                                 <Icon name="setting" size={35} />
                             </TouchableOpacity>
@@ -69,10 +69,10 @@ const User = () => {
                                 CONFIGURACOES
                             </Text>
                         </View>
-                        <View style={[styles.icons, { marginTop: 40 }]}>
-                            <TouchableOpacity style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
+                        <View style={[styles.icons, { paddingTop: 50 }]}>
+                            <LinearGradient colors={['#ff7854', '#fd267d']} style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
                                 <Icon name="camera" size={35} />
-                            </TouchableOpacity>
+                            </LinearGradient>
                             <Text style={{ fontSize: 10 }}>
                                 ADD MIDIA
                             </Text>
@@ -90,50 +90,51 @@ const User = () => {
             </View>
 
             <View style={styles.anuncios}>
-                <Carousel
-                    data={DATA}
-                    autoplay={true}
-                    loop={true}
-                    onSnapToItem={(index) => setIndex(index)}
-                    renderItem={({ item }) => {
-                        return <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-                            <View style={{ flexDirection: 'row' }}>
-                                <Image style={{ width: 25, height: 25 }} source={{ uri: item.icon }} />
+                <View style={styles.carouselArea}>
+                    <Carousel
+                        data={DATA}
+                        autoplay={true}
+                        loop={true}
+                        onSnapToItem={(index) => setIndex(index)}
+                        renderItem={({ item }) => {
+                            return <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+                                <View style={{ flexDirection: 'row' }}>
+                                    <Image style={{ width: 25, height: 25 }} source={{ uri: item.icon }} />
 
+                                    <Text style={{ fontWeight: 'bold' }}>
+                                        {item.title}
+                                    </Text>
+                                </View>
                                 <Text>
-                                    {item.title}
+                                    {item.description}
                                 </Text>
                             </View>
-                            <Text>
-                                {item.description}
-                            </Text>
-                        </View>
-                    }}
-                    sliderWidth={300}
-                    itemWidth={300}
-                />
-                <View style={{ width: 50, height: 30, marginBottom: 15 }}>
-                    <Pagination
-                        dotsLength={DATA.length}
-                        activeDotIndex={index}
-                        dotStyle={{
-                            width: 10,
-                            height: 10,
-                            borderRadius: 5,
-                            marginHorizontal: 8,
-                            backgroundColor: 'rgba(0, 0, 0, 0.92)'
                         }}
-
-                        inactiveDotOpacity={0.4}
-                        inactiveDotScale={0.6}
+                        sliderWidth={300}
+                        itemWidth={300}
                     />
+                    <View style={{ width: 50, height: 50 }}>
+                        <Pagination
+                            dotsLength={DATA.length}
+                            activeDotIndex={index}
+                            dotStyle={{
+                                width: 10,
+                                height: 10,
+                                borderRadius: 5,
+                                marginHorizontal: 8,
+                                backgroundColor: 'rgba(0, 0, 0, 0.92)'
+                            }}
+                            inactiveDotOpacity={0.4}
+                            inactiveDotScale={0.6}
+                        />
+                    </View>
                 </View>
-                <LinearGradient colors={['262deg', '#ff7854', '#fd267d']} style={styles.btnTinderPlus}>
+                <TouchableOpacity style={styles.btnTinderPlus}>
                     <Text style={{ fontWeight: 'bold', color: '#FE3C72' }}>
                         MEU TINDER PLUS®
                     </Text>
 
-                </LinearGradient>
+                </TouchableOpacity>
             </View>
         </View>
     )
@@ -145,10 +146,10 @@ const styles = StyleSheet.create({
         flexDirection: "column"
     },
     profile: {
-        padding: 50,
+        padding: 30,
         alignItems: "center",
         backgroundColor: '#fff',
-        flex: 2.3,
+        flex: 2,
         borderBottomRightRadius: 150,
         borderBottomLeftRadius: 150,
         shadowColor: "#000",
@@ -164,19 +165,25 @@ const styles = StyleSheet.create({
     },
     anuncios: {
         flex: 1,
-        justifyContent: 'center',
+        justifyContent: "center",
         alignItems: 'center',
         padding: 5,
         marginTop: 10
     },
     profileImg: {
-        width: 130,
-        height: 130,
+        width: 140,
+        height: 140,
         borderRadius: 100
     },
     profileTitle: {
         padding: 5,
         fontSize: 30
+    },
+    iconsArea: {
+        flexDirection: 'row',
+        justifyContent: "center",
+        alignItems: 'center',
+        width: 500
     },
     icons:
     {
@@ -185,8 +192,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
-        margin: 20,
-        borderRadius: 40,
+        margin: 20
 
 
     },
@@ -218,14 +224,19 @@ const styles = StyleSheet.create({
         },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-
         elevation: 5,
-        width: 200,
+        width: 275,
         justifyContent: "center",
         alignItems: 'center',
-        height: 40,
+        height: 50,
         borderRadius: 30,
         marginBottom: 13
+    },
+    carouselArea: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 20
     }
 })
 
