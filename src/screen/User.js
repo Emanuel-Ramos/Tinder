@@ -46,46 +46,48 @@ const User = () => {
     return (
         <View style={styles.screen}>
             <View style={styles.profile}>
-                <Image style={styles.profileImg} source={{ uri: 'https://avaazdo.s3.amazonaws.com/original_5bdede30ca834.png' }} />
-                <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                    <Text style={styles.profileTitle}>
-                        Dreivao, 25
-                    </Text>
-                    <Icon name="checkcircleo" size={20} />
-                </View>
-                <View style={{ justifyContent: 'center', alignItems: "center" }}>
-                    <Text>
-                        Carrasco
-                    </Text>
-                    <Text>
-                        Colegio estadual de Noxus
-                    </Text>
-                    <View style={styles.iconsArea}>
-                        <View style={styles.icons}>
-                            <TouchableOpacity style={styles.btnIcon}>
-                                <Icon name="setting" size={35} />
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 10 }}>
-                                CONFIGURACOES
-                            </Text>
-                        </View>
-                        <View style={[styles.icons, { paddingTop: 50 }]}>
-                            <TouchableOpacity>
-                                <LinearGradient colors={['#ff7854', '#fd267d']} style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
-                                    <Icon name="camera" size={35} />
-                                </LinearGradient>
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 10 }}>
-                                ADD MIDIA
-                            </Text>
-                        </View>
-                        <View style={styles.icons}>
-                            <TouchableOpacity style={styles.btnIcon}>
-                                <Icon name="edit" size={35} />
-                            </TouchableOpacity>
-                            <Text style={{ fontSize: 10 }}>
-                                EDITAR INFO
-                            </Text>
+                <View style={styles.child}>
+                    <Image style={styles.profileImg} source={{ uri: 'https://avaazdo.s3.amazonaws.com/original_5bdede30ca834.png' }} />
+                    <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                        <Text style={styles.profileTitle}>
+                            Dreivao, 25
+                        </Text>
+                        <Icon name="checkcircleo" size={20} />
+                    </View>
+                    <View style={{ justifyContent: 'center', alignItems: "center" }}>
+                        <Text>
+                            Carrasco
+                        </Text>
+                        <Text>
+                            Colegio estadual de Noxus
+                        </Text>
+                        <View style={styles.iconsArea}>
+                            <View style={styles.icons}>
+                                <TouchableOpacity style={styles.btnIcon}>
+                                    <Icon name="setting" size={35} />
+                                </TouchableOpacity>
+                                <Text style={{ fontSize: 10 }}>
+                                    CONFIGURACOES
+                                </Text>
+                            </View>
+                            <View style={[styles.icons, { paddingTop: 50 }]}>
+                                <TouchableOpacity>
+                                    <LinearGradient colors={['#ff7854', '#fd267d']} style={[styles.btnIcon, { backgroundColor: '#FF628E' }]}>
+                                        <Icon name="camera" size={35} />
+                                    </LinearGradient>
+                                </TouchableOpacity>
+                                <Text style={{ fontSize: 10 }}>
+                                    ADD MIDIA
+                                </Text>
+                            </View>
+                            <View style={styles.icons}>
+                                <TouchableOpacity style={styles.btnIcon}>
+                                    <Icon name="edit" size={35} />
+                                </TouchableOpacity>
+                                <Text style={{ fontSize: 10 }}>
+                                    EDITAR INFO
+                                </Text>
+                            </View>
                         </View>
                     </View>
                 </View>
@@ -141,8 +143,10 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: '#fff',
         flex: 2,
-        borderBottomRightRadius: 150,
-        borderBottomLeftRadius: 150,
+        transform: [{ scaleX: 2 }],
+        borderBottomStartRadius: 200,
+        borderBottomEndRadius: 200,
+        overflow: 'hidden',
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -154,6 +158,14 @@ const styles = StyleSheet.create({
         elevation: 6,
 
     },
+    child:
+    {
+        flex: 0.9,
+        transform: [{ scaleX: 0.5 }],
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+
     anuncios: {
         flex: 1,
         justifyContent: "center",
